@@ -1,0 +1,9 @@
+<div id="calendar-grid">
+  @each(day in days)
+  @set('day', await day)
+  @!component('calendar/day', {
+  day,
+  classes: day.classes
+  })
+  @end
+</div>

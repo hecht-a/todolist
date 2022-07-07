@@ -1,0 +1,14 @@
+main {
+  height: $container__height;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  color: $snow-3;
+  height: $container__height;
+  overflow-y: hidden;
+  margin-top: $header__spacing;
+}

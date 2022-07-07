@@ -1,0 +1,13 @@
+@each(task in tasks)
+<div class="event" data-itemid="{{ task.id }}">
+  <li class="todo-item {{ task.state && 'done' }}" data-itemid="{{ task.id }}" @click.prevent="switchState">
+    <input type="checkbox" id="{{task.id}}">
+    <label for="{{task.id}}" class="tick"></label>
+  </li>
+  <p>Nom: {{ task.name }}</p>
+  <p>Description: {{ task.description }}</p>
+  <p>Début: {{ task.start }}</p>
+  <p>Fin: {{ task.end }}</p>
+  <button id="delete-task" @click="deleteTask"></button>
+</div>
+@end

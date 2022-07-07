@@ -1,0 +1,122 @@
+@import 'root';
+@import 'base';
+
+@import 'core/reset';
+@import 'core/notyf';
+
+@import 'header';
+
+@import 'components/form';
+
+@import 'todolist/modal';
+@import 'todolist/list';
+@import 'todolist/item';
+@import 'todolist/index';
+
+@import 'notes/index';
+
+@import 'calendar/index';
+
+.todolist, .form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-self: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .todolist, .form {
+    width: 80%;
+  }
+}
+
+button, .button {
+  font-family: MonoLisa, sans-serif;
+  text-transform: uppercase;
+  padding: 7px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid $snow-1;
+  color: $snow-1;
+}
+
+button {
+  cursor: pointer;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $grey-4;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+
+.btn-todo {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  &::before {
+    position: relative;
+    top: -3px;
+    font-size: 20px;
+  }
+}
+
+.delete-todo {
+  background: $red;
+
+  &::before {
+    content: "✗";
+  }
+}
+
+.edit-todo {
+  background: $green;
+  color: $grey-1;
+
+  &::before {
+    content: "✎";
+  }
+}
+
+
+div {
+  .btn {
+    font-family: MonoLisa, sans-serif;
+    text-transform: uppercase;
+    padding: 7px;
+    border-radius: 10px;
+    border: 1px solid $snow-1;
+    color: $snow-1;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+
+    &:active, &:hover {
+      background: $frost-4;
+    }
+  }
+}
+
+.app-title {
+  color: $snow-1;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+[data-visible="false"] {
+  display: none !important;
+}
+
+
+/* reset input */
+.form__field {
+  &:required, &:invalid {
+    box-shadow: none;
+  }
+}

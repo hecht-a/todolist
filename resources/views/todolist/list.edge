@@ -1,0 +1,13 @@
+<ul class="todo-list">
+  @if(items.length)
+    @each(item in items)
+      @!component('todolist/item', {
+        item
+      })
+    @end
+  @else
+    <div class="empty-state">
+      <h2 class="empty-state__title">Aucune tâche</h2>
+    </div>
+  @end
+</ul>

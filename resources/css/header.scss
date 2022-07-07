@@ -1,0 +1,127 @@
+.header {
+  color: $snow-3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: $header__height;
+  border-bottom: 2px solid $grey-4;
+  padding: $header__spacing;
+  gap: $header__spacing;
+
+  button {
+    display: none;
+  }
+
+  a {
+    color: $snow-3;
+    text-decoration: none;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      list-style-type: none;
+      gap: 1em;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    display: block;
+    padding: 0;
+
+    .header_button {
+      position: fixed;
+      top: calc((5vh - 18px) / 2);
+      right: 20px;
+      width: 40px;
+      height: 22px;
+      background: none;
+      box-shadow: none;
+      border: none;
+      outline: 0;
+      cursor: pointer;
+      z-index: 10;
+      display: block;
+
+      span {
+        position: absolute;
+        left: 50%;
+        width: 26px;
+        height: 2px;
+        background-color: $snow-1;
+
+        &:nth-child(1) {
+          top: 0;
+          transform: translateX(-50%) translateY(0);
+          transition: top .3s cubic-bezier(0.21, 0.83, 0.26, 0.87) .3s, transform .3s cubic-bezier(0.21, 0.83, 0.26, 0.87);
+        }
+
+        &:nth-child(2) {
+          top: 8px;
+          opacity: 1;
+          transform: translateX(-50%);
+        }
+
+        &:last-child {
+          top: 16px;
+          transform: translateX(-50%) translateY(0);
+          transition: top .3s cubic-bezier(0.21, 0.83, 0.26, 0.87) .3s, transform .3s cubic-bezier(0.21, 0.83, 0.26, 0.87);
+        }
+      }
+
+      &.open {
+        span {
+          &:nth-child(1) {
+            top: 50%;
+            transform: translateX(-50%) translateY(0) rotate(45deg);
+            transition: top .3s cubic-bezier(0.21, 0.83, 0.26, 0.87), transform .3s cubic-bezier(0.21, 0.83, 0.26, 0.87) .3s;
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:last-child {
+            top: 50%;
+            transform: translateX(-50%) translateY(0) rotate(-45deg);
+            transition: bottom .3s cubic-bezier(0.21, 0.83, 0.26, 0.87), transform .3s cubic-bezier(0.21, 0.83, 0.26, 0.87) .3s;
+          }
+        }
+      }
+    }
+
+    nav {
+      position: fixed;
+      right: 0;
+      height: 100vh;
+      padding: 50px;
+      background-color: $grey-2;
+      transform: translateX(100%);
+      transition: all .2s ease-out;
+      z-index: 9;
+      border-left: 2px solid $grey-4;
+
+      ul {
+        list-style-type: none;
+        text-align: right;
+        display: block;
+      }
+
+      li {
+        padding: 12px 0;
+      }
+
+      a {
+        position: relative;
+        text-decoration: none;
+        color: #000;
+      }
+
+      &.open {
+        transform: translateX(0);
+      }
+    }
+  }
+}

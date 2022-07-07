@@ -1,0 +1,8 @@
+<div class="not-done-list">
+  <div class="title">
+    <h2>Non finies</h2>
+  </div>
+  @!component('todolist/list', {
+  items: items.filter((item) => !item.state)
+  })
+</div>

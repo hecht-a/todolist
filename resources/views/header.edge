@@ -1,0 +1,21 @@
+<div class="header" x-data="navbar">
+  <button :class="{'open': visible, 'header_button': true}" @click="switchVisible">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav :class="{'open': visible}">
+    <ul>
+      <li><a href="{{ route('ShowTodolistController.showTodolistAction') }}">Todolist</a></li>
+      <li><a href="{{ route('ShowNotesController.showNotesAction') }}">Notes</a></li>
+      <li><a href="{{ route('ShowCalendarController.showCalendarAction') }}">Calendrier</a></li>
+      @if(auth.isLoggedIn)
+        <li><a href="#">{{ auth.user.email }}</a></li>
+        <li><a href="{{ route('LogoutController.logoutAction') }}">Déconnexion</a></li>
+      @else
+        <li><a href="{{ route('LoginController.loginAction') }}">Connexion</a></li>
+        <li><a href="{{ route('RegisterController.registerAction') }}">Inscription</a></li>
+        @end
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,27 @@
+.todo-list {
+  .list {
+    display: flex;
+    flex-direction: column;
+
+    .todo-list {
+      padding: 10px;
+      list-style: none;
+      margin-bottom: 20px;
+      overflow-y: auto;
+      max-height: 40vh;
+    }
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+
+    .empty-state__title {
+      margin-bottom: 20px;
+    }
+  }
+}

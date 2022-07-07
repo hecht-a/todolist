@@ -1,0 +1,8 @@
+{
+  "assets/app.css": "http://localhost:8080/assets/app.css",
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "assets/fonts/MPLUSRounded1c-Bold.ttf": "http://localhost:8080/assets/fonts/MPLUSRounded1c-Bold.3af36442.ttf",
+  "assets/fonts/MPLUSRounded1c-Regular.ttf": "http://localhost:8080/assets/fonts/MPLUSRounded1c-Regular.a6e3080a.ttf",
+  "assets/fonts/Asap-Regular.ttf": "http://localhost:8080/assets/fonts/Asap-Regular.1aac3a41.ttf",
+  "assets/fonts/Asap-Bold.ttf": "http://localhost:8080/assets/fonts/Asap-Bold.193e1e1a.ttf"
+}

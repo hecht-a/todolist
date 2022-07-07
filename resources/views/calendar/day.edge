@@ -1,0 +1,14 @@
+@if(day.type === "span")
+  <span></span>
+@else
+  @set('formattedDay', day.day.day + '/' + day.day.month + '/' + day.day.year)
+  @set('tasks', day.tasks)
+  @set('done', tasks.filter(task => task.state))
+
+  <time @click="{{ classes.includes('disabled') ? '' : 'show' }}" value="{{ formattedDay }}" id="{{ formattedDay }}" class="{{ classes.join(' ') }}">
+    <p class="number__day">{{ day.day.day }}</p>
+    @if(tasks.length > 0)
+      <p id="amount-events">{{ `${done.length} / ${tasks.length} finie(s)` }}</p>
+    @end
+  </time>
+@end

@@ -1,0 +1,21 @@
+@layout('base')
+@set('title', 'Calendrier')
+@set('xData', 'calendar')
+
+@section('body')
+  <div id="calendar">
+    <div id="calendar-wrapper">
+      @!component('calendar/header', {
+      month: calendar.month
+      })
+
+      <div id="calendar-element">
+        @!include('calendar/days-header')
+        @!component('calendar/days', {
+          days: calendar.days
+        })
+      </div>
+    </div>
+  </div>
+  @!component('calendar/modal')
+  @end

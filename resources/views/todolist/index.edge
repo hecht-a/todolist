@@ -1,0 +1,20 @@
+@layout('base')
+@set('xData', 'todolist')
+
+@section('body')
+  <div class="todolist" @keydown.escape="hide">
+    <div class="list">
+      @!component('todolist/notDoneItems', {
+        items
+      })
+
+      @!component('todolist/doneItems', {
+        items
+      })
+    </div>
+    <button @click="show" class="show__modal">Ajouter une tâche</button>
+    @!component('todolist/createItem', {
+      date
+    })
+  </div>
+@end

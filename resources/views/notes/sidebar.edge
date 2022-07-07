@@ -1,0 +1,12 @@
+<div id="sidebar">
+  <div class="title_container">
+    <button @click="reset" class="btn">Nouvelle note</button>
+  </div>
+  <div class="notes">
+    @each(note in notes)
+    @!component('notes/noteButton', {
+      note
+    })
+    @end
+  </div>
+</div>

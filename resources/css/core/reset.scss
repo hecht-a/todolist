@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "asap";
+  src: url("../../fonts/Asap-Bold.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "asap";
+  src: url("../../fonts/Asap-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "mplus";
+  src: url("../../fonts/MPLUSRounded1c-Bold.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "mplus";
+  src: url("../../fonts/MPLUSRounded1c-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+a {
+  color: $snow-3 !important;
+}
+
+html {
+  box-sizing: border-box;
+  background: $grey-1;
+}
+
+html, body {
+  height: 100%;
+  font-family: "mplus", sans-serif;
+}
+
+.link {
+  color: $snow-3;
+  text-decoration: none;
+  margin-top: 1em;
+  align-self: flex-end;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}

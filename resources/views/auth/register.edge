@@ -1,0 +1,25 @@
+@layout('base')
+
+@section('body')
+<div class="form">
+  <h1 class="app-title">S'inscrire</h1>
+  <form action="{{ route('RegisterController.registerAction') }}" method="post">
+    <div class="form__group">
+      <input id="email" name="email" class="form__field" type="text" aria-label="Enter a new todo item" placeholder="Email">
+      <label for="email" class="form__label">Email</label>
+    </div>
+    <div class="form__group">
+      <input id="password" name="password" class="form__field" type="password" aria-label="Enter your password"
+             placeholder="Password">
+      <label for="password" class="form__label">Mot de passe</label>
+    </div>
+    <div class="form__group">
+      <input id="password_confirmation" name="password_confirmation" class="form__field" type="password" aria-label="Enter your password"
+             placeholder="Password confirmation">
+      <label for="password_confirmation" class="form__label">Confirmer le mot de passe</label>
+    </div>
+    <a href="{{ route('LoginController.loginAction') }}" class="link">Se connecter</a>
+    <button type="submit">S'inscrire</button>
+  </form>
+</div>
+@end

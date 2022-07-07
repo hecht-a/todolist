@@ -1,0 +1,8 @@
+<div class="done-list">
+  <div class="title">
+    <h2>Finies</h2>
+  </div>
+  @!component('todolist/list', {
+  items: items.filter((item) => item.state)
+  })
+</div>

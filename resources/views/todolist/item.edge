@@ -1,0 +1,10 @@
+<li class="todo-item {{ item.state && 'done' }}" data-itemId="{{ item.id }}">
+  <input id="{{ item.id }}" type="checkbox"/>
+  <label @click="switchState" for="{{ item.id }}" class="tick"></label>
+  <div>
+    <p>{{ item.name }}</p>
+    <p>{{ item.start }}</p>
+  </div>
+  <button class="btn-todo edit-todo"></button>
+  <button @click="deleteItem" class="btn-todo delete-todo"></button>
+</li>
