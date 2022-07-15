@@ -7,7 +7,7 @@
   })
   <div id="container">
     <div class="input">
-      <form @submit.prevent="saveNote" action="{{ route('CreateNoteController.createNoteAction') }}">
+      <form @submit.prevent="action" action="{{ route('CreateNoteController.createNoteAction') }}">
         <div class="form_control">
           <input
             type="text"
@@ -17,7 +17,12 @@
             maxlength="10"
             autocomplete="off"
           />
-          <button type="submit">sauvegarder</button>
+          <template  x-if="actionName=='saveNote'">
+            <button type="submit">sauvegarder</button>
+          </template>
+          <template  x-if="actionName=='updateNote'">
+            <button type="submit">éditer</button>
+          </template>
         </div>
         <textarea name="content" id="note" placeholder="Entrez votre texte"></textarea>
       </form>

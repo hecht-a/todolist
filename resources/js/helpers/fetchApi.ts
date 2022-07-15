@@ -4,7 +4,8 @@ export function fetchApi<T extends Record<any, any> = ApiResponse>(
   action: string,
   init: RequestInit = {},
   params?: FetchParams
-): Promise<T | undefined> {
+): Promise<T> {
+  console.log(action)
   return fetch(action, init)
     .then((response) => {
       if (response.headers.get('Content-Type')?.includes('application/json')) {
@@ -22,7 +23,7 @@ export function fetchApi<T extends Record<any, any> = ApiResponse>(
           }
         }
         if (!notif) {
-          return
+          return data
         }
       }
 

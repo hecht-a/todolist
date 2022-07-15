@@ -29,7 +29,15 @@ const reset = () => {
 }
 
 export default () => ({
-  reset,
+  actionName: 'saveNote',
+  action(e) {
+    return this[this.actionName](e)
+  },
+  note: null,
+  reset() {
+    reset()
+    this.actionName = 'saveNote'
+  },
   fetchNote(e) {
     const { noteid } = e.target.dataset
     const selected: HTMLButtonElement | null = document.querySelector('button[disabled]')
@@ -41,6 +49,7 @@ export default () => ({
     fetch(`/notes/${noteid}`, { method: 'get' })
       .then((response) => response.json())
       .then((data: Note) => {
+        this.note = data
         const input = document.querySelector('input')!
         const textarea = document.querySelector('textarea')!
 
@@ -52,6 +61,8 @@ export default () => ({
         const buttons = document.querySelector<HTMLDivElement>('.buttons')!
         buttons.classList.remove('hidden')
         buttons.dataset.noteid = data.id.toString()
+
+        this.actionName = 'updateNote'
       })
   },
   saveNote(e) {
@@ -74,6 +85,7 @@ export default () => ({
       form.querySelector('input')!.disabled = true
       document.querySelector<HTMLButtonElement>(`#sidebar .notes button:last-child`)!.disabled =
         true
+      this.actionName = 'updateNote'
     })
   },
   deleteNote() {
@@ -85,7 +97,22 @@ export default () => ({
       { callback: [reloadNotes, reset], notif: true }
     )
   },
-  editNote() {},
+  updateNote(e) {
+    const { note }: { note: Note } = this
+    const form = e.target
+
+    const fd = new FormData(form)
+    fetchApi(
+      `/notes/${note.id.toString()}`,
+      {
+        method: 'put',
+        body: fd,
+      },
+      {
+        notif: true,
+      }
+    )
+  },
   downloadNote() {
     const { note }: { note: Note } = this
 
