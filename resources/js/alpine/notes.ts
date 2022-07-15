@@ -86,5 +86,26 @@ export default () => ({
     )
   },
   editNote() {},
-  downloadNote() {},
+  downloadNote() {
+    const { note }: { note: Note } = this
+
+    const data = URL.createObjectURL(new Blob([note.content], { type: 'text/plain' }))
+
+    const link = document.createElement('a')
+    link.href = data
+    link.download = note.name
+
+    link.dispatchEvent(
+      new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      })
+    )
+
+    setTimeout(() => {
+      URL.revokeObjectURL(data)
+      link.remove()
+    }, 100)
+  },
 })
