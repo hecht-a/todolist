@@ -1,10 +1,23 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BaseModel,
+  BelongsTo,
+  belongsTo,
+  column,
+  ManyToMany,
+  manyToMany,
+} from '@ioc:Adonis/Lucid/Orm'
 import User from 'App/Models/User'
+import Item from 'App/Models/Item'
 
 export default class Note extends BaseModel {
   @belongsTo(() => User)
   public noteOwner: BelongsTo<typeof User>
+
+  @manyToMany(() => Item, {
+    pivotTable: 'note_item',
+  })
+  public items: ManyToMany<typeof Item>
 
   @column({ isPrimary: true })
   public id: number
