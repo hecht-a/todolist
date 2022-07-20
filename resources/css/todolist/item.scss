@@ -1,9 +1,9 @@
 .todo-item {
-  margin-bottom: 10px;
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
 
   input[type="checkbox"] {
     display: none;
@@ -11,25 +11,56 @@
 
   div {
     flex-grow: 1;
+    max-width: 80%;
     margin: 0 10px;
     font-size: 22px;
-    max-width: 80%;
+
+    small {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.6em;
+      gap: 0.4em;
+      text-decoration: underline;
+      cursor: pointer;
+
+      $svg-size: 1.4em;
+
+      button {
+        border: none;
+        background: transparent;
+        width: $svg-size;
+        height: $svg-size;
+        padding: 0;
+
+        svg {
+          color: $frost-1;
+          width: $svg-size;
+          height: $svg-size;
+        }
+
+        &:hover {
+          svg {
+            color: $frost-4;
+          }
+        }
+      }
+    }
   }
 
   .tick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
     border: 3px solid $snow-1;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
 
     &::before {
-      content: "✓";
-      font-size: 20px;
       display: none;
+      font-size: 20px;
+      content: "✓";
     }
   }
 }

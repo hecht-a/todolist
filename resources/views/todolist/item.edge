@@ -2,9 +2,27 @@
   <input id="{{ item.id }}" type="checkbox"/>
   <label @click="switchState" for="{{ item.id }}" class="tick"></label>
   <div>
-    <p>{{ item.name }}</p>
+    @set("notes", item.notes)
+    <p>
+      {{ item.name }}
+      <small data-noteid="{{ item.id }}">
+        <a @click="show" data-url="/todolist/notes/{{ item.id }}">
+          ({{ notes.length }}
+          @if(notes.length > 1)
+            {{ pluralize('note') + ' ' + pluralize('liée') }})
+          @else
+            note liée)
+            @end
+        </a>
+        <button @click.stop="show" data-url="/todolist/add-note/{{ item.id }}">
+          @svg('tabler:circle-plus')
+        </button>
+      </small>
+    </p>
     <p>{{ item.start }}</p>
   </div>
-  <button class="btn-todo edit-todo"></button>
-  <button @click="deleteItem" class="btn-todo delete-todo"></button>
+  <button class="btn-todo edit-todo">
+  </button>
+  <button @click="deleteItem" class="btn-todo delete-todo">
+  </button>
 </li>
