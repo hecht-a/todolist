@@ -1,0 +1,9 @@
+<div class="notes" @click.outside="hide">
+  <button @click="hide" class="close__modal" aria-label="Fermer la fenêtre">✗</button>
+  @each(note in notes)
+  <div class="note">
+    <p class="name">{{ note.name }}</p>
+    <p class="description">{{ truncate(note.content, 120) }}</p>
+  </div>
+  @end
+</div>

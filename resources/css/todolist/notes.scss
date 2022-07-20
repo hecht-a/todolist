@@ -1,0 +1,51 @@
+.modal {
+  z-index: 10;
+  background: rgba(76, 86, 106, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+
+  .notes {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 14em;
+    left: 20vw;
+    bottom: 14em;
+    right: 20vw;
+    z-index: 10;
+    background: $grey-2;
+    border-radius: 10px;
+    padding: 1em;
+    gap: .6em;
+
+    .close__modal {
+      position: absolute;
+      top: 0;
+      right: 5px;
+      background: transparent;
+      border: none;
+      color: $red;
+      font-size: 30px;
+    }
+
+    .note {
+      display: flex;
+      border-bottom: 2px solid $grey-3;
+      gap: 2em;
+      align-items: center;
+      padding: .6em 0;
+
+      .name {
+        width: 20%;
+      }
+
+      .description {
+        width: 80%;
+      }
+    }
+  }
+}
