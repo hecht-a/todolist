@@ -1,27 +1,28 @@
-<div class="modal" x-show="isOpen">
-  <div class="form__task__container" @click.outside="hide">
-    <button @click="hide" class="close__modal" aria-label="Fermer la fenêtre">✗</button>
-    <h1 class="modal__title">Créer une tâche</h1>
-    <form class="form__task" @submit.prevent="createItem" action="{{ route('CreateItemController.createItemAction') }}" method="post">
-      <div class="form__group">
-        <input name="name" id="task" class="form__field field" type="text" aria-label="Enter a new todo item" placeholder="E.g. Build a web app">
-        <label for="task" class="todo-label form__label">Tâche</label>
-      </div>
-      <div class="form__group">
-        <input name="description" id="description" class="form__field field" type="text" aria-label="Enter a new todo item" placeholder="E.g. Build a web app">
-        <label for="description" class="todo-label form__label">Description</label>
-      </div>
-      <div class="form__group">
-        <input name="start" id="start" class="form__field field" type="datetime-local"
-        aria-label="Enter a new todo item" placeholder="HH:MM" value="{{ date }}">
-        <label for="start" class="todo-label form__label">Start</label>
-      </div>
-      <div class="form__group">
-        <input name="end" id="end" class="form__field field" type="datetime-local"
-        aria-label="Enter a new todo item" placeholder="HH:MM" value="{{ date }}">
-        <label for="end" class="todo-label form__label">End</label>
-      </div>
-      <button class="add__task">Ajouter</button>
-    </form>
-  </div>
+<div class="form__task__container" @click.outside="hide">
+  <button @click="hide" class="close__modal" aria-label="Fermer la fenêtre">✗</button>
+  <h1 class="modal__title">Créer une tâche</h1>
+  <form class="form__task" @submit.prevent="createItem" action="{{ route('CreateItemController.createItemAction') }}"
+        method="post">
+    <div class="form__group">
+      <input name="name" id="task" class="form__field field" type="text" aria-label="Enter a new todo item"
+             placeholder="E.g. Build a web app">
+      <label for="task" class="todo-label form__label">Tâche</label>
+    </div>
+    <div class="form__group">
+      <input name="description" id="description" class="form__field field" type="text"
+             aria-label="Enter a new todo item" placeholder="E.g. Build a web app">
+      <label for="description" class="todo-label form__label">Description</label>
+    </div>
+    <div class="form__group">
+      <input name="start" id="start" class="form__field field" type="datetime-local"
+             aria-label="Enter a new todo item" placeholder="HH:MM" value="{{ date }}">
+      <label for="start" class="todo-label form__label">Start</label>
+    </div>
+    <div class="form__group">
+      <input name="end" id="end" class="form__field field" type="datetime-local"
+             aria-label="Enter a new todo item" placeholder="HH:MM" value="{{ date }}">
+      <label for="end" class="todo-label form__label">End</label>
+    </div>
+    <button class="add__task">Ajouter</button>
+  </form>
 </div>

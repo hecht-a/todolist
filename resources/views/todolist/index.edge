@@ -12,9 +12,7 @@
         items
       })
     </div>
-    <button @click="show" class="show__modal">Ajouter une tâche</button>
-    @!component('todolist/createItem', {
-      date
-    })
+    <button @click="show" class="show__modal" data-url="/todolist/form">Ajouter une tâche</button>
+    <div class="modal" x-show="isOpen"></div>
   </div>
 @end
