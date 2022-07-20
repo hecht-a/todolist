@@ -7,6 +7,7 @@ Route.group(() => {
   Route.get('/items/not-done', 'GetNotDoneItemsController.getNotDoneItemsAction')
   Route.delete('/delete/:id', 'DeleteItemController.deleteItemAction').where('id', /\d+/)
   Route.get('/notes/:task', 'GetNotesController.getNotesAction').where('task', /\d+/)
+  Route.get('/add-note/:task', 'GetAddNoteController.getAddNoteAction').where('task', /\d+/)
   Route.put('/switch/:id', 'SwitchItemController.switchItemAction').where('id', /\d+/)
 })
   .prefix('/todolist')
