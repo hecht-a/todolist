@@ -1,16 +1,16 @@
 import { ApiResponse, FetchParams } from '../alpine/types'
 
-export function fetchApi<T extends Record<any, any> = ApiResponse>(
+export function fetchApi<T extends Record<any, any> | string = ApiResponse>(
   action: string,
   init: RequestInit = {},
   params?: FetchParams
 ): Promise<T> {
-  console.log(action)
   return fetch(action, init)
     .then((response) => {
       if (response.headers.get('Content-Type')?.includes('application/json')) {
         return response.json()
       }
+      return response.text()
     })
     .then((data: T) => {
       if (params) {
@@ -25,6 +25,10 @@ export function fetchApi<T extends Record<any, any> = ApiResponse>(
         if (!notif) {
           return data
         }
+      }
+
+      if (typeof data === 'string') {
+        return data
       }
 
       if (data.type && data.message) {
