@@ -16,12 +16,42 @@ function reloadList() {
     })
 }
 
+const getItemId = (elem: HTMLElement): null | number => {
+  if (elem.nodeName.toLowerCase() !== 'small') {
+    if (!elem.parentElement) {
+      return null
+    }
+    return getItemId(elem.parentElement)
+  }
+
+  if (!elem.dataset.noteid) {
+    return null
+  }
+
+  return parseInt(elem.dataset.noteid)
+}
+
 export default () => ({
   isOpen: false,
-  show() {
-    this.isOpen = true
+  show(e) {
+    const { url } = e.currentTarget.dataset
+
+    fetchApi<string>(
+      url,
+      {
+        method: 'get',
+      },
+      { notif: false }
+    ).then((response) => {
+      const modal = document.querySelector('.modal')!
+      modal.insertAdjacentHTML('beforeend', response)
+      this.isOpen = true
+    })
   },
   hide() {
+    const modal = document.querySelector('.modal')!
+    modal.lastChild!.remove()
+
     this.isOpen = false
   },
   createItem(e) {
