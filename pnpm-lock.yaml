@@ -11,12 +11,15 @@ specifiers:
   '@adonisjs/session': ^6.4.0
   '@adonisjs/shield': ^7.0.11
   '@adonisjs/view': ^6.1.5
+  '@iconify-json/heroicons-outline': ^1.1.2
+  '@iconify-json/tabler': ^1.1.19
   '@japa/preset-adonis': ^1.0.16
   '@japa/runner': ^2.0.8
   '@symfony/webpack-encore': ^2.1.0
   adonis-preset-ts: ^2.1.0
   alpinejs: ^3.10.2
   dayjs: ^1.11.3
+  edge-iconify: ^1.0.1
   eslint: ^8.16.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-adonis: ^2.1.0
@@ -47,8 +50,11 @@ dependencies:
   '@adonisjs/session': 6.4.0_@adonisjs+core@5.8.3
   '@adonisjs/shield': 7.0.11_fa9289fba5d01fa885a81f283948cefd
   '@adonisjs/view': 6.1.5_@adonisjs+core@5.8.3
+  '@iconify-json/heroicons-outline': 1.1.2
+  '@iconify-json/tabler': 1.1.19
   alpinejs: 3.10.2
   dayjs: 1.11.3
+  edge-iconify: 1.0.1
   luxon: 2.4.0
   notyf: 3.10.0
   pg: 8.7.3
@@ -1681,6 +1687,26 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@iconify-json/heroicons-outline/1.1.2:
+    resolution: {integrity: sha512-XsOWcUhdvu3eNURW40hlC2Wrc0cSNWwD+p+UeX57h/qwwDzibIMLeBuqhz9d1FjxHeiM86WQUc4QFB1SK2BGVw==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: false
+
+  /@iconify-json/tabler/1.1.19:
+    resolution: {integrity: sha512-XScskInlXYUHzIuXxbi/HCdkXgM6jZg/n23wYVV40fLfzTxzaRZKtB04BMjFX+EsUwXr/xry7s/htJX4fGAjHA==}
+    dependencies:
+      '@iconify/types': 1.1.0
+    dev: false
+
+  /@iconify/iconify/2.2.1:
+    resolution: {integrity: sha512-WJzw+3iicrF/tbjbxxRinSgy5FHdJoz/egTqwi3xCDkNRJPq482RX1iyaWrjNuY2vMNSPkQMuqHvZDXgA+WnwQ==}
+    dev: false
+
+  /@iconify/types/1.1.0:
+    resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
+    dev: false
 
   /@japa/api-client/1.3.1:
     resolution: {integrity: sha512-8m3+n0/XSDZGKqxsv/0iBTXrm4rGVBSgJ/T8bazO+u+HtgAb0y2icGIYpFHP1e62GJ+XDSuk6dLYbVvPqCwq8Q==}
@@ -4076,6 +4102,13 @@ packages:
 
   /edge-error/2.0.8:
     resolution: {integrity: sha512-ORKH7rn/LEfgo0qrgoMMwFPfestNFvTO+dRLDmS+zgulhd9BVXfv/p+V6K3OyEeu2L0ysYp/71uHB31GIDe68A==}
+    dev: false
+
+  /edge-iconify/1.0.1:
+    resolution: {integrity: sha512-I3MlFsXj7A+1WqhT83HH0xuzU3uoN+0zi+FN9UZn//Iba4Hxlk3b5eA3zbkqk/K+xYOq2Ufeq8CHmYv70dH0Ng==}
+    dependencies:
+      '@iconify/iconify': 2.2.1
+      stringify-attributes: 2.0.0
     dev: false
 
   /edge-lexer/4.0.10:
